@@ -30,4 +30,4 @@ export const DUMMY_POSTS = [
     date: "2022-01-03",
     content: "# This is a third post",
   },
-] as IPost[];
+] as unknown as IPost[];

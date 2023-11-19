@@ -1,12 +1,16 @@
 import PostContent from "@/components/posts/post-detail/post-content";
-import { DUMMY_POSTS } from "@/data/post-dummy-data";
 import { getAllPosts, getPostData } from "@/utils/posts-util";
+import IPost from "@/model/post";
 
-export const PostDetailPage = () => {
-  const firstPost = DUMMY_POSTS[0];
+type Props = {
+  post: IPost;
+};
+export const PostDetailPage = (props: Props) => {
+  const { post } = props;
+
   return (
     <div>
-      <PostContent post={firstPost} />
+      <PostContent post={post} />
     </div>
   );
 };
@@ -16,11 +20,11 @@ export const getStaticProps = async (context: any) => {
     params: { slug },
   } = context;
 
-  const allPosts = getPostData(slug);
+  const post = getPostData(slug);
 
   return {
     props: {
-      posts: JSON.parse(JSON.stringify(allPosts)),
+      post: JSON.parse(JSON.stringify(post)),
     },
     revalidate: 1800,
   };

@@ -3,6 +3,8 @@ import PostHeader from "@/components/posts/post-detail/post-header";
 import IPost from "@/model/post";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 type Props = {
   post: IPost;
@@ -44,6 +46,16 @@ const PostContent = (props: Props) => {
       }
       return <p>{paragraph.children}</p>;
     },
+    code(code: any) {
+      const { children } = code;
+      return (
+        <SyntaxHighlighter
+          style={atomDark}
+          language={"javascript"}
+          children={children}
+        />
+      );
+    },
   };
   return (
     <article className={styles.content}>
@@ -52,6 +64,7 @@ const PostContent = (props: Props) => {
         components={{
           img: customRenderers.image,
           p: customRenderers.paragraph,
+          code: customRenderers.code,
         }}
       >
         {content}

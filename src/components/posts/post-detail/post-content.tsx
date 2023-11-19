@@ -26,6 +26,24 @@ const PostContent = (props: Props) => {
         />
       );
     },
+    paragraph(paragraph: any) {
+      const { node } = paragraph;
+
+      if (node.children[0].type === "image") {
+        const image = node.children[0];
+        return (
+          <div className={styles.image}>
+            <Image
+              src={`/images/posts/${slug}/${image.properties.src}`}
+              alt={image.properties.alt}
+              width={600}
+              height={300}
+            />
+          </div>
+        );
+      }
+      return <p>{paragraph.children}</p>;
+    },
   };
   return (
     <article className={styles.content}>
@@ -33,6 +51,7 @@ const PostContent = (props: Props) => {
       <ReactMarkdown
         components={{
           img: customRenderers.image,
+          p: customRenderers.paragraph,
         }}
       >
         {content}

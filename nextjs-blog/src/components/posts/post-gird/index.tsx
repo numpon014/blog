@@ -1,8 +1,9 @@
 import styles from "./styles.module.css";
 import PostItem from "../post-item";
+import { IPost } from "@/model/post";
 
 type Props = {
-  posts: any[];
+  posts: IPost[];
 };
 
 const PostGird = ({ posts }: Props) => {
@@ -14,3 +15,5 @@ const PostGird = ({ posts }: Props) => {
     </ul>
   );
 };
+
+export default PostGird;

@@ -8,3 +8,5 @@ export interface IPost {
   excerpt: string;
   isFeatured: boolean;
 }
+
+export default IPost;

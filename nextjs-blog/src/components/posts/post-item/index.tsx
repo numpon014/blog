@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { IPost } from "@/model/post";
+import IPost from "@/model/post";
 
 type Props = {
   post: IPost;
@@ -24,7 +24,13 @@ const PostItem = (props: Props) => {
     <li className={styles.post}>
       <Link href={`/posts/${slug}`}>
         <div className={styles.image}>
-          <Image src={imagePath} alt={title} width={300} height={200} />
+          <Image
+            src={imagePath}
+            alt={title}
+            width={300}
+            height={200}
+            layout="responsive"
+          />
         </div>
         <div className={styles.content}>
           <h3>{title}</h3>

@@ -5,7 +5,8 @@ import React, { Fragment } from "react";
 import Hero from "@/components/hero";
 import FeaturedPosts from "@/components/featured-posts";
 import IPost from "@/model/post";
-import { DUMMY_POSTS } from "@/data/post-dummy-data";
+// import { DUMMY_POSTS } from "@/data/post-dummy-data";
+import { getFeaturedPosts } from "@/utils/posts-util";
 
 type Props = {
   posts: IPost[];
@@ -15,8 +16,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function HomePage(props: Props) {
   const { posts } = props;
-
-  console.log(posts);
 
   return (
     <Fragment>
@@ -28,8 +27,19 @@ export default function HomePage(props: Props) {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <Hero />
-        <FeaturedPosts posts={DUMMY_POSTS} />
+        <FeaturedPosts posts={posts} />
       </main>
     </Fragment>
   );
 }
+
+export const getStaticProps = async () => {
+  const featuredPosts = getFeaturedPosts();
+
+  return {
+    props: {
+      posts: JSON.parse(JSON.stringify(featuredPosts)),
+    },
+    revalidate: 1800,
+  };
+};

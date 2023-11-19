@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import IPost from "@/model/post";
 
-const postsDirectory = path.join(process.cwd(), "posts");
+const postsDirectory = path.join(process.cwd(), "src", "posts");
 
 function getPostData(fileName: string) {
   const filePath = path.join(postsDirectory, fileName);

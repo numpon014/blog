@@ -4,7 +4,7 @@ export interface IPost {
   image: string;
   content: string;
   slug: string;
-  date: string;
+  date: Date;
   excerpt: string;
   isFeatured: boolean;
 }

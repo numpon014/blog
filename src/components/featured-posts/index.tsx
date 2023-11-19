@@ -9,7 +9,6 @@ type Props = {
 const FeaturedPosts = (props: Props) => {
   const { posts } = props;
 
-  console.log(posts);
   return (
     <section className={styles.latest}>
       <h2>Featured Posts</h2>

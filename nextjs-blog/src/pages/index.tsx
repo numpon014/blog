@@ -5,6 +5,7 @@ import React, { Fragment } from "react";
 import Hero from "@/components/hero";
 import FeaturedPosts from "@/components/featured-posts";
 import IPost from "@/model/post";
+import { DUMMY_POSTS } from "@/data/post-dummy-data";
 
 type Props = {
   posts: IPost[];
@@ -12,34 +13,10 @@ type Props = {
 
 const inter = Inter({ subsets: ["latin"] });
 
-const DUMMY_POSTS = [
-  {
-    slug: "getting-started-with-nextjs",
-    title: "Getting Started with NextJS",
-    image: "getting-started-nextjs.png",
-    excerpt:
-      "NextJS is a the React framework for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR.",
-    date: "2022-02-10",
-  },
-  {
-    slug: "dolor-sit-amet",
-    title: "Dolor Sit Amet",
-    image: "getting-started-nextjs.png",
-    excerpt: "Dolor sit amet, consectetur adipiscing elit.",
-    date: "2022-01-02",
-  },
-  {
-    slug: "adipiscing-elit",
-    title: "Adipiscing Elit",
-    image: "getting-started-nextjs.png",
-    excerpt:
-      "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    date: "2022-01-03",
-  },
-] as IPost[];
-
 export default function HomePage(props: Props) {
   const { posts } = props;
+
+  console.log(posts);
 
   return (
     <Fragment>

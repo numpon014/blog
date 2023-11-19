@@ -9,6 +9,7 @@ export const DUMMY_POSTS = [
     excerpt:
       "NextJS is a the React framework for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR.",
     date: "2022-02-10",
+    content: "# This is a first post",
   },
   {
     id: "p2",
@@ -17,6 +18,7 @@ export const DUMMY_POSTS = [
     image: "getting-started-nextjs.png",
     excerpt: "Dolor sit amet, consectetur adipiscing elit.",
     date: "2022-01-02",
+    content: "# This is a second post",
   },
   {
     id: "p3",
@@ -26,5 +28,6 @@ export const DUMMY_POSTS = [
     excerpt:
       "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     date: "2022-01-03",
+    content: "# This is a third post",
   },
 ] as IPost[];

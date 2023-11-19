@@ -1,0 +1,20 @@
+import styles from "./post-header.module.css";
+import Image from "next/image";
+
+type Props = {
+  title: string;
+  image: string;
+};
+
+const PostHeader = (props: Props) => {
+  const { title, image } = props;
+
+  return (
+    <div className={styles.header}>
+      <h1>{title}</h1>
+      <Image src={image} alt={title} width={200} height={150} />
+    </div>
+  );
+};
+
+export default PostHeader;
